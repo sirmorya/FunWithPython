@@ -1,8 +1,8 @@
-'''https://leetcode.com/problems/01-matrix/'''
+
 class Solution(object):
     def updateMatrix(self, matrix):
-        m = matrix.length
-        n = matrix[0].length
+        m = len(matrix)
+        n = len(matrix[0])
         
         queue = []
         for i in range(0,m):
@@ -16,7 +16,7 @@ class Solution(object):
         dirs = [[-1, 0], [1,0],[0,1],[0,-1]]
         
         while len(queue) > 0:
-            cell = queue.poll(0)
+            cell = queue.pop(0)
             for d in dirs:
                 r = cell[0] + d[0]
                 c = cell[1] + d[1]
@@ -26,4 +26,4 @@ class Solution(object):
                 matrix[r][c] = matrix[cell[0]][cell[1]] + 1
         
         return matrix
-        
+'''Time Complexity: O(N) where N = m*n as in worst case any cell won't be added more than 4 times. So, it will be O(4N)) time"
